@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     width: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 30,
+    marginVertical: 5,
   },
   disabledBtn: {
     backgroundColor: 'rgb(107 83 59)',
