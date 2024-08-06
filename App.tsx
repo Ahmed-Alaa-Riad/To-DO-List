@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
   FlatList,
-  ImageBackground,
   StyleSheet,
   Text,
   TextInput,
@@ -80,44 +79,37 @@ function App(): JSX.Element {
     );
   };
   return (
-    <ImageBackground
-      source={require('./src/images/backgroundimage.jpg')}
-      style={styles.backgroundImage}>
-      <View style={styles.container}>
-        <TextInput
-          style={styles.textArea}
-          maxLength={19}
-          numberOfLines={1}
-          placeholder="Write Here"
-          placeholderTextColor="black"
-          onChangeText={value => setText(value)}
-          value={text}
-        />
-        <TouchableOpacity
-          onPress={addToList}
-          style={text.length > 0 ? styles.saveBtn : styles.disabledBtn}
-          disabled={text.length === 0}>
-          <Text>Save</Text>
-        </TouchableOpacity>
-        <FlatList
-          data={todoList}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
-    </ImageBackground>
+    <View style={styles.container}>
+      <TextInput
+        style={styles.textArea}
+        maxLength={14}
+        numberOfLines={1}
+        placeholder="Write Here"
+        placeholderTextColor="black"
+        onChangeText={value => setText(value)}
+        value={text}
+      />
+      <TouchableOpacity
+        onPress={addToList}
+        style={text.length > 0 ? styles.saveBtn : styles.disabledBtn}
+        disabled={text.length === 0}>
+        <Text>Save</Text>
+      </TouchableOpacity>
+      <FlatList
+        data={todoList}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#f9f9f9',
   },
   textArea: {
     color: 'black',
@@ -129,7 +121,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 20,
     borderColor: 'rgb(214 123 42)',
-    borderWidth: 2,
+    borderWidth: 1,
     width: '85%',
   },
   btn: {
@@ -138,7 +130,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     width: 60,
     alignItems: 'center',
-    justifyContent: 'center',
     marginVertical: 10,
   },
   saveBtn: {
@@ -158,11 +149,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     opacity: 0.5,
-    marginVertical: 50,
+    marginVertical: 5,
   },
   buttonContainer: {
     flexDirection: 'row',
-    gap: 10,
   },
   text: {
     color: 'black',
@@ -172,8 +162,9 @@ const styles = StyleSheet.create({
     width: '80%',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginTop: 20,
-    marginLeft: 10,
+    marginTop: 15,
+    marginRight: 5,
+    marginLeft: 5,
     borderWidth: 1,
     borderColor: 'rgb(214 123 42)',
     padding: 5,
